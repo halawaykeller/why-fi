@@ -7,3 +7,9 @@ export const PAGES = {
 /* Themeing of colors */
 export const COLORS = {
 }
+
+/* Auth Page types */
+export const AUTH_TYPES = {
+    REGISTRATION: 'reg',
+    LOGIN: 'login',
+}

@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import styled from 'styled-components';
+
+import LoginForm from './forms/login-form';
+import RegisterForm from './forms/register-form';
+
+import { AUTH_TYPES } from '../data/constants';
 
 /* AuthPage:
  * A component that handles auth for our users
@@ -10,11 +16,17 @@ import styled from 'styled-components';
  * className (str, optional):
  *     to be used by styled-components for styling
  */
-const AuthPage = (props) => (
-    <div className={props.className}>
-        Auth is important
-    </div>
-);
+const AuthPage = (props) => {
+    const FormComponent = props.authType == AUTH_TYPES.REGISTRATION
+        ? RegisterForm
+        : LoginForm;
+    
+    return (
+        <div className={props.className}>
+            <FormComponent />
+        </div>
+    );
+};
 
 AuthPage.propTypes = {
     className: PropTypes.string,
@@ -24,4 +36,8 @@ const AuthPageStyled = styled(AuthPage)`
     height: 100%;
 `;
 
-export default AuthPageStyled;
+const ms2p = ({ ui: { authType } }) => ({ authType });
+
+const AuthPageSmart = connect(ms2p, () => ({}))(AuthPageStyled);
+
+export default AuthPageSmart;

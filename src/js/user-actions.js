@@ -7,15 +7,21 @@ import styled from 'styled-components';
 import { Button, Header } from 'semantic-ui-react';
 
 import { setCurrentPage, setAuthType } from '../data/actions';
-import { PAGES } from '../data/constants';
+import { PAGES, AUTH_TYPES } from '../data/constants';
 
 const Actions = (props) => (
     <div className={props.className}>
         <Header as='h3'>
             Are you a {props.call} who wants to take action?
         </Header>
-        <Button content='Register' onClick={props.onClick.bind(this, 'reg')} />
-        <Button content='Login' onClick={props.onClick.bind(this, 'login')} />
+        <Button
+            content='Register'
+            onClick={props.onClick.bind(this, AUTH_TYPES.REGISTRATION)}
+        />
+        <Button
+            content='Login'
+            onClick={props.onClick.bind(this, AUTH_TYPES.LOGIN)}
+        />
     </div>
 );
 

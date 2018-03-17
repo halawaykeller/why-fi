@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Page from './page';
+
 const BaseLayout = (props) => {
     return (
-        <div>
-            Hello World!
+        <div className={props.className}>
+            <Page />
         </div>
     );
 }

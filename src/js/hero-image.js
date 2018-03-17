@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import bkgImg from '../images/girl_1280.jpg';
 
+import Title from './title';
+
 
 /* HeroImage:
  * A component that holds a hero image
@@ -15,7 +17,7 @@ import bkgImg from '../images/girl_1280.jpg';
  */
 const HeroImage = (props) => (
     <div className={props.className}>
-        Hero Image!
+       <Title/>
     </div>
 );
 

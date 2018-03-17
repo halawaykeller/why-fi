@@ -5,10 +5,6 @@ import styled from 'styled-components';
 import { data, data01, data02 } from '../data/graph-data'
 import { LineChart, Line, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Pie, PieChart, Area, AreaChart } from 'recharts';
 
-// TODO : Need to pass appropriate, relvant data to these charts - pick a chart, any chart 
-// these are just example charts from http://recharts.org/#/en-US/examples
-// feel free to choose different charts if needed 
-
 const HookGraph = (props) => (
 
     <React.Fragment>
@@ -36,7 +32,7 @@ const HookGraph = (props) => (
             <YAxis/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
-            <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#8884d8' />
+            <Area type='monotone' dataKey='percentage' stroke='#8884d8' fill='#8884d8' />
         </AreaChart>
     </React.Fragment>
 

@@ -19,13 +19,10 @@ import HookGraph from './hook-graph';
 const SplashPage = (props) => (
     <div className={props.className}>
         <HeroImage />
-        <HookGraph />
         <SplashPageColumn
             title='Connecting Old Technology to New Opportunities'
         >
-            <div>
-                Hello World!
-            </div>
+            <HookGraph />
         </SplashPageColumn>
         <SplashPageColumn
             title='Ready to Take Action?'

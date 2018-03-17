@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '../data/store';
 
+import BaseLayout from './base-layout';
+
 const App = () => {
     return (
         <Provider store={store}>
-            <div>Hello World</div>
+            <BaseLayout />
         </Provider>
     );
 }

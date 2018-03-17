@@ -7,6 +7,7 @@ import HeroImage from './hero-image';
 import SplashPageColumn from './splash-page-col';
 import DonateAction from './donate-action';
 import UserActions from './user-actions';
+import HookGraph from './hook-graph';
 
 /* SplashPage:
  * A component that holds the content for the splash page
@@ -18,6 +19,7 @@ import UserActions from './user-actions';
 const SplashPage = (props) => (
     <div className={props.className}>
         <HeroImage />
+        <HookGraph />
         <SplashPageColumn
             title='Connecting Old Technology to New Opportunities'
         >

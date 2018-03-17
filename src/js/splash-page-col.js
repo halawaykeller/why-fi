@@ -35,6 +35,7 @@ SplashPageColumn.propTypes = {
 
 const SplashPageColumnStyled = styled(SplashPageColumn)`
     padding: 40px;
+    border-bottom: 1px black solid;
 `;
 
 export default SplashPageColumnStyled;

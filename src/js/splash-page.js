@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import HeroImage from './hero-image';
 import SplashPageColumn from './splash-page-col';
+import DonateAction from './donate-action';
+import UserActions from './user-actions';
 
 /* SplashPage:
  * A component that holds the content for the splash page
@@ -22,6 +24,12 @@ const SplashPage = (props) => (
             <div>
                 Hello World!
             </div>
+        </SplashPageColumn>
+        <SplashPageColumn
+            title='Ready to Take Action?'
+        >
+            <DonateAction />
+            <UserActions />
         </SplashPageColumn>
     </div>
 );

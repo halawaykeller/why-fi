@@ -41,6 +41,7 @@ export const data02 = [
       {name: 'Page G', value: 3490, amt: 2100},
 ];
 
+
 export const education_level = [
         {name: '2000', less_than_hs: 19, hs: 40, some_college: 67, college_plus: 78},
         {name: '2001', less_than_hs: 21, hs: 43, some_college: 68, college_plus: 81},

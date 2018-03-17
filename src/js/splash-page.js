@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import styled from 'styled-components';
 
+import HeroImage from './hero-image';
 
 /* SplashPage:
  * A component that holds the content for the splash page
@@ -14,7 +14,7 @@ import styled from 'styled-components';
  */
 const SplashPage = (props) => (
     <div className={props.className}>
-        Hello World!
+        <HeroImage />
     </div>
 );
 

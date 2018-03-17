@@ -46,8 +46,7 @@ Page.defaultProps = {
 
 const PageContentStyled = styled(Page)`
     margin-top: 0 !important;
-    height: 100vh;
-    padding: 40px;
+    height: 120vh;
 `;
 
 const ms2p = ({ ui: { currentPage } }) => ({ currentPage });

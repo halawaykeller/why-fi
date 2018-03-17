@@ -1,19 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const Title = (props) => (
-    <div className={props.className}>
+    <h1 className={props.className}>
         Why-Fi
-    </div>
+    </h1>
 );
 
-// Title.propTypes = {
-//     className: PropTypes.string,
-// };
+Title.propTypes = {
+    className: PropTypes.string,
+};
 
-const TitleStyled = styled.h1`
-    font-family: times;
-    text-align: center;
+const TitleStyled = styled(Title)`
+    color: black;
+    text-align: left;
 `;
 
 export default TitleStyled;

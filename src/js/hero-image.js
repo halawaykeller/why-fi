@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import bkgImg from '../images/girl_1280.jpg';
 
 import Title from './title';
+import ByLine from './by-line';
 
 
 /* HeroImage:
@@ -18,6 +19,7 @@ import Title from './title';
 const HeroImage = (props) => (
     <div className={props.className}>
        <Title/>
+       <ByLine/>
     </div>
 );
 

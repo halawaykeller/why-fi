@@ -37,11 +37,11 @@ const Page = (props) => {
 
 Page.propTypes = {
     className: PropTypes.string,
-    page: PropTypes.string,
+    currentPage: PropTypes.string,
 };
 
 Page.defaultProps = {
-    page: PAGES.HOME,
+    currentPage: PAGES.HOME,
 };
 
 const PageContentStyled = styled(Page)`

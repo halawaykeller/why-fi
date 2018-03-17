@@ -24,8 +24,8 @@ const contentComponents = {
  */
 const Page = (props) => {
     // Allow for the passing of props to the content's component
-    const { className, page, ...contentProps } = props;
-    const ContentComponent = contentComponents[page];
+    const { className, currentPage, ...contentProps } = props;
+    const ContentComponent = contentComponents[currentPage];
     
     return (
         <div className={className}>
@@ -47,12 +47,9 @@ Page.defaultProps = {
 const PageContentStyled = styled(Page)`
     margin-top: 0 !important;
     height: 100vh;
-    background-color: aliceblue;
     padding: 40px;
 `;
 
-const ms2p = (state) => ({
-    // page: state.ui.page,
-});
+const ms2p = ({ ui: { currentPage } }) => ({ currentPage });
 
 export default connect(ms2p, () => ({}))(PageContentStyled);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import HeroImage from './hero-image';
+import SplashPageColumn from './splash-page-col';
 
 /* SplashPage:
  * A component that holds the content for the splash page
@@ -15,6 +16,13 @@ import HeroImage from './hero-image';
 const SplashPage = (props) => (
     <div className={props.className}>
         <HeroImage />
+        <SplashPageColumn
+            title='Connecting Old Technology to New Opportunities'
+        >
+            <div>
+                Hello World!
+            </div>
+        </SplashPageColumn>
     </div>
 );
 

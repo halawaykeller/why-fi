@@ -15,7 +15,7 @@ import bkgImg from '../images/girl_1280.jpg';
  */
 const HeroImage = (props) => (
     <div className={props.className}>
-        Hello World!
+        Hero Image!
     </div>
 );
 

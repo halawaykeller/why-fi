@@ -2,6 +2,7 @@
 export const PAGES = {
     HOME: 'home',
     AUTH: 'auth',
+    DONATION: 'donation',
 };
 
 /* Themeing of colors */

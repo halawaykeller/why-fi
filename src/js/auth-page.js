@@ -65,6 +65,7 @@ const ms2p = ({
 const md2p = (dispatch, ownProps) => ({
     onLogin: ({ email, password }) => {
         ownProps.firebase.login({ email, password });
+        // dispatch(setCurrentPage(PAGES.HOME))
     },
     onRegister: (values) => {
         const { email, password, retype_password } = values;

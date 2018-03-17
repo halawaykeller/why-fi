@@ -1,10 +1,12 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import { Message, Button } from 'semantic-ui-react';
+import { Message } from 'semantic-ui-react';
 
 import { renderFieldStyled } from './fields';
 import { isRequired } from './validation';
+
+import { PrimaryButton as Button } from '../ui/button';
 
 const LoginForm = props => {
     const { 

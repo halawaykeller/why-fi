@@ -1,7 +1,8 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import { Message, Button } from 'semantic-ui-react';
+import { Message } from 'semantic-ui-react';
+import { PrimaryButton as Button } from '../ui/button';
 
 import { renderFieldStyled } from './fields';
 import { isRequired } from './validation';

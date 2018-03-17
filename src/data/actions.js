@@ -10,6 +10,7 @@ const SET_AUTH_PAGE = 'SET_AUTH_PAGE';
 export const actionTypes = {
     SET_CURRENT_PAGE,
     SET_AUTH_TYPE,
+    SET_AUTH_PAGE,
 };
 
 /* Actions */

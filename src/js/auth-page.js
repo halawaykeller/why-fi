@@ -12,6 +12,8 @@ import ProfileUpdateForm from './forms/profile-update-form';
 
 import { AUTH_TYPES } from '../data/constants';
 
+import { setAuthPage, setCurrentPage } from '../data/actions';
+
 /* AuthPage:
  * A component that handles auth for our users
  *
@@ -24,14 +26,11 @@ const AuthPage = (props) => {
     let FormComponent = LoginForm;
     let onSubmit = props.onLogin;
     let error = {};
-    console.log(isRegistration);
-    console.log(props);
     
     if (isRegistration) {
-        FormComponent = props.authPage == 1 ? RegisterForm : ProfileUpdateForm;
-        onSubmit = props.authPage == 1
-            ? props.onRegister
-            : props.onProfileUpdate;
+        const isProfileUpdate = props.authPage == 2;
+        FormComponent = isProfileUpdate ? ProfileUpdateForm : RegisterForm;
+        onSubmit = isProfileUpdate ? props.onProfileUpdate : props.onRegister;
     }
     
     if (props.authError) {
@@ -64,8 +63,8 @@ const ms2p = ({
     authError,
 });
 const md2p = (dispatch, ownProps) => ({
-    onLogin: (values) => {
-        console.log('login', values);
+    onLogin: ({ email, password }) => {
+        ownProps.firebase.login({ email, password });
     },
     onRegister: (values) => {
         const { email, password, retype_password } = values;
@@ -79,10 +78,13 @@ const md2p = (dispatch, ownProps) => ({
             });
         }
         
-        ownProps.firebase.createUser({ email, password });
+        ownProps.firebase.createUser({ email, password }).then(() => {
+            dispatch(setAuthPage(2));
+        });
     },
     onProfileUpdate: (values) => {
-        console.log('profile update', values);
+        ownProps.firebase.updateProfile(values);
+        // dispatch(setCurrentPage(PAGES.HOME));
     }
 });
 

@@ -5,23 +5,14 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../data/constants';
 
-export const GreenButton = styled(Button)`
-    background: ${COLORS.GREEN} !important;
+export const PrimaryButton = styled(Button)`
+    background: ${COLORS.GREY_LIGHT} !important;
     color: ${COLORS.WHITE} !important;
     
     &:hover {
-        background: ${COLORS.GREEN_DARK} !important;
+        background: ${COLORS.BLUE} !important;
     }
 `;
 
 
-export const RedButton = styled(Button)`
-    background: ${COLORS.RED} !important;
-    color: ${COLORS.WHITE} !important;
-    
-    &:hover {
-        background: ${COLORS.RED_LIGHT} !important;
-    }
-`;
-
-export default GreenButton;
+export default PrimaryButton;

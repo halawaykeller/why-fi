@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import styled from 'styled-components';
 
-import { Button, Header } from 'semantic-ui-react';
+import { PrimaryButton as Button } from '../ui/button';
 
 import { setCurrentPage, setAuthType, setAuthPage } from '../data/actions';
 import { PAGES, AUTH_TYPES } from '../data/constants';

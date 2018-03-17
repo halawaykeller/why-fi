@@ -31,6 +31,11 @@ const SplashPage = (props) => (
             <DonateAction />
             <UserActions />
         </SplashPageColumn>
+        <SplashPageColumn
+            title='Sponsors'
+        >
+            <div>Sponsors Here!</div>
+        </SplashPageColumn>
     </div>
 );
 

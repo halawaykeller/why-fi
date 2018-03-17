@@ -18,3 +18,9 @@ export const AUTH_TYPES = {
     REGISTRATION: 'reg',
     LOGIN: 'login',
 }
+
+/* User Types */
+export const USER_TYPES = {
+    BUSINESS: 'business',
+    NONPROFIT: 'nonprofit',
+}

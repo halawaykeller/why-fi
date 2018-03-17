@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { Button, Header } from 'semantic-ui-react';
 
-import { setCurrentPage, setAuthType } from '../data/actions';
+import { setCurrentPage, setAuthType, setAuthPage } from '../data/actions';
 import { PAGES, AUTH_TYPES } from '../data/constants';
 
 const Actions = (props) => (
@@ -34,6 +34,9 @@ const md2p = (dispatch) => ({
     onClick: (authType) => {
         dispatch(setCurrentPage(PAGES.AUTH));
         dispatch(setAuthType(authType));
+        if (authType == AUTH_TYPES.REGISTRATION) {
+            dispatch(setAuthPage(1));
+        }
     }
 });
 

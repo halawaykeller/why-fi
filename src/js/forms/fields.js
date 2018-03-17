@@ -18,7 +18,7 @@ export const renderField = ({
 }) => (
     <div className={className}>
         {touched && error && (
-            <Label pointing="down" basic color='red'>{error}</Label>
+            <Label pointing="below" basic color='red'>{error}</Label>
         )}
         <Input
             {...input}
@@ -49,6 +49,9 @@ export const renderSelectField = ({
     extraProps,
 }) => (
     <div className={className}>
+        {touched && error && (
+            <Label pointing="below" basic color='red'>{error}</Label>
+        )}
         <Select
             {...input}
             {...extraProps}
@@ -57,7 +60,6 @@ export const renderSelectField = ({
             error={error && touched}
             onChange={(param,data) => input.onChange(data.value)}
         />
-        {touched && error && <Label pointing basic color='red'>{error}</Label>}
     </div>
 );
 

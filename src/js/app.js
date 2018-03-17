@@ -16,8 +16,6 @@ const App = () => {
 }
 
 /* Below are some site-wide stylings
- * FIXME - where should this go? Is this replaceable with theming from
- * styled components?
  */
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Raleway');

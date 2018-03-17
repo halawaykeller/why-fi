@@ -37,7 +37,7 @@ const RegisterForm = props => {
             />
             <Field
                 name="retype_password"
-                type="retype_password"
+                type="password"
                 component={renderFieldStyled}
                 label="Retype Password"
                 extraProps={{ fluid: true }}

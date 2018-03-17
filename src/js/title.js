@@ -14,8 +14,8 @@ Title.propTypes = {
 };
 
 const TitleStyled = styled(Title)`
-    font-family: times;
-    text-align: center;
+    color: black;
+    text-align: left;
 `;
 
 export default TitleStyled;

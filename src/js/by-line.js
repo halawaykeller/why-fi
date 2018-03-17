@@ -13,8 +13,9 @@ ByLine.propTypes = {
 };
 
 const ByLineStyled = styled(ByLine)`
-color: red;
-text-align: center;
+    color: black;
+    text-align: left;
+    padding: 3em;
 `;
 
 export default ByLineStyled;

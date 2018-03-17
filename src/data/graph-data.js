@@ -41,6 +41,27 @@ export const data02 = [
       {name: 'Page G', value: 3490, amt: 2100},
 ];
 
+export const income = [
+{name:'2000',	low:34,	mid_low:58,	mid_high:72, high:81},
+{name:'2001',	low:36,	mid_low:60,	mid_high:75, high:84},
+{name:'2002',	low:39,	mid_low:64,	mid_high:76, high:85},
+{name:'2003',	low:41,	mid_low:66,	mid_high:81, high:87},
+{name:'2004',	low:44,	mid_low:68,	mid_high:83, high:88},
+{name:'2005',	low:49,	mid_low:73,	mid_high:86, high:92},
+{name:'2006',	low:52,	mid_low:75,	mid_high:86, high:92},
+{name:'2007',	low:58,	mid_low:74,	mid_high:86, high:93},
+{name:'2008',	low:54,	mid_low:78,	mid_high:88, high:95},
+{name:'2009',	low:60,	mid_low:79,	mid_high:92, high:95},
+{name:'2010',	low:61,	mid_low:81,	mid_high:88, high:95},
+{name:'2011',	low:64,	mid_low:85,	mid_high:90, high:97},
+{name:'2012',	low:70,	mid_low:87,	mid_high:93, high:97},
+{name:'2013',	low:72,	mid_low:86,	mid_high:93, high:97},
+{name:'2014',	low:74,	mid_low:86,	mid_high:93, high:96},
+{name:'2015',	low:76,	mid_low:86,	mid_high:94, high:97},
+{name:'2016',	low:79,	mid_low:90,	mid_high:95, high:98},
+{name:'2018',	low:81,	mid_low:93,	mid_high:97, high:98},
+
+]
 
 export const education_level = [
         {name: '2000', less_than_hs: 19, hs: 40, some_college: 67, college_plus: 78},

@@ -7,9 +7,11 @@ import styled from 'styled-components';
 import { PAGES } from '../data/constants';
 
 import SplashPage from './splash-page';
+import AuthPage from './auth-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,
+    [PAGES.AUTH]: AuthPage,
 };
 
 

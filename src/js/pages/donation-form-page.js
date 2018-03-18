@@ -7,6 +7,7 @@ import Header from '../ui/header';
 import DonateForm from '../forms/donation-form';
 
 import { AUTH_TYPES, USER_TYPES, PAGES } from '../../data/constants';
+import { setCurrentPage } from '../../data/actions';
 
 /* DonationPage:
  * A component that handles donations
@@ -35,6 +36,7 @@ const ms2p = ({ ui: { donate: { currentNonProfit } } }) => ({ currentNonProfit }
 const md2p = (dispatch, ownProps) => ({
     onSubmit: (values) => {
         ownProps.firestore.add('donations', values);
+        dispatch(setCurrentPage(PAGES.DONATION_CONFIRMATION_FORM));
     }
 })
 

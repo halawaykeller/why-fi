@@ -4,6 +4,7 @@ export const PAGES = {
     AUTH: 'auth',
     DONATION: 'donation',
     DONATE_FORM: 'donate_form',
+    DONATION_CONFIRMATION_FORM: 'donate_confirm',
 };
 
 /* Themeing of colors */

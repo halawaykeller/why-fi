@@ -47,19 +47,19 @@ const ProfileUpdateForm = props => {
                 addMargin
             />
             <Field
-                name="laptops"
+                name="laptop"
                 type="checkbox"
                 component={renderCheckboxFieldStyled}
                 label="Laptops"
             />
             <Field
-                name="smartphones"
+                name="smartphone"
                 type="checkbox"
                 component={renderCheckboxFieldStyled}
                 label="Smartphones"
             />
             <Field
-                name="tablets"
+                name="tablet"
                 type="checkbox"
                 component={renderCheckboxFieldStyled}
                 label="Tablets"

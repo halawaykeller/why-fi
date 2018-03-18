@@ -9,7 +9,7 @@ const HookGraph = (props) => (
     
 
     <React.Fragment>
-        <h1>Internet Adoption Over Time</h1>
+        <h2>Internet Adoption Over Time</h2>
         <AreaChart width={600} height={400} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
@@ -19,7 +19,7 @@ const HookGraph = (props) => (
             <Area name='Overall internet adoption' type='monotone' dataKey='internet_usage' stroke='#8884d8' fill='#8884d8' />
         </AreaChart>
         
-        <h1>Internet Usage Based on Education Level</h1>
+        <h2>Internet Usage Based on Education Level</h2>
         <AreaChart width={600} height={400} data={education_level} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
@@ -31,7 +31,7 @@ const HookGraph = (props) => (
             <Area name='College plus' type='monotone' dataKey='college_plus' stackId="1" stroke='#ffc658' fill='#ffc658' />
         </AreaChart>
         
-        <h1>Internet Usage Based on Average Household Income</h1>
+        <h2>Internet Usage Based on Average Household Income</h2>
         <AreaChart width={600} height={400} data={income} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name" label={{value: 'Period from 2000-2018', position: 'bottom'}}/>

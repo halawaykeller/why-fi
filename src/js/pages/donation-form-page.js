@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { withFirestore } from 'react-redux-firebase';
+
+
 import FirestoreFilter from '../firestore-hoc';
+
 
 import Header from '../ui/header';
 import DonateForm from '../forms/donation-form';
@@ -34,6 +38,7 @@ DonationFormPage.propTypes = {
     currentNonProfit: PropTypes.string,
 };
 
+
 const ms2p = ({ 
     ui: { donate: { currentNonProfit } },
     firestore: { ordered: { users } },
@@ -41,6 +46,7 @@ const ms2p = ({
     currentNonProfit,
     users,
 });
+
 const md2p = (dispatch, ownProps) => ({
     onSubmit: (values) => {
         const setUpValues = { ...values };
@@ -50,6 +56,7 @@ const md2p = (dispatch, ownProps) => ({
         dispatch(setCurrentPage(PAGES.DONATION_CONFIRMATION_FORM));
     }
 });
+
 
 const DonationFormPageSmart = FirestoreFilter(
     [ { collection: 'users', where: [ 'type', '==', USER_TYPES.BUSINESS ] } ]

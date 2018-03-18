@@ -46,12 +46,12 @@ const DonationPage = (props) => {
     }
     
     return (
-        <React.Fragment>
-            <Header as='h2'></Header>
-            <List relaxed divided className={props.className}>
+        <div className={props.className}>
+            <Header as='h2'>Click on a non-profit to donate your device</Header>
+            <List relaxed divided>
                 {listItems}
             </List>
-        </React.Fragment>
+        </div>
     );
 };
 
@@ -69,6 +69,12 @@ DonationPage.defaultProps = {
 
 const DonationPageStyled = styled(DonationPage)`
     height: 100%;
+    padding-top: 4em;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    max-width: 50%;
+    
 `;
 
 const ms2p = ({

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
+import HookConent from './hook-content';
 import { data, data01, data02, education_level, income } from '../data/graph-data'
 import { CartesianGrid, XAxis, YAxis, Tooltip, Area, AreaChart, Label, Legend } from 'recharts';
 
@@ -18,6 +19,7 @@ const HookGraph = (props) => (
             <Tooltip/>
             <Area name='Overall internet adoption' type='monotone' dataKey='internet_usage' stroke='#8884d8' fill='#8884d8' />
         </AreaChart>
+        <HookConent />
         
         <h1>Internet Usage Based on Education Level</h1>
         <AreaChart width={600} height={400} data={education_level} margin={{top: 10, right: 30, left: 0, bottom: 0}}>

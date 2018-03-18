@@ -7,9 +7,9 @@ import styled from 'styled-components';
 import { List } from 'semantic-ui-react';
 import Header from '../ui/header';
 
-import { AUTH_TYPES, USER_TYPES } from '../data/constants';
+import { AUTH_TYPES, USER_TYPES } from '../../data/constants';
 
-import { setCurrentPage, setCurrentNonProfit } from '../data/actions';
+import { setCurrentPage, setCurrentNonProfit } from '../../data/actions';
 import { PAGES } from 'constants';
 
 /* DonationPage:

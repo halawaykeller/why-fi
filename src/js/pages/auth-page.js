@@ -10,9 +10,9 @@ import LoginForm from '../forms/login-form';
 import RegisterForm from '../forms/register-form';
 import ProfileUpdateForm from '../forms/profile-update-form';
 
-import { AUTH_TYPES } from '../data/constants';
+import { AUTH_TYPES } from '../../data/constants';
 
-import { setAuthPage, setCurrentPage } from '../data/actions';
+import { setAuthPage, setCurrentPage } from '../../data/actions';
 
 /* AuthPage:
  * A component that handles auth for our users

@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 import { PAGES } from '../data/constants';
 
-import SplashPage from './splash-page';
-import AuthPage from './auth-page';
-import DonationPage from './donation-page';
+import SplashPage from './pages/splash-page';
+import AuthPage from './pages/auth-page';
+import DonationPage from './pages/donation-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,

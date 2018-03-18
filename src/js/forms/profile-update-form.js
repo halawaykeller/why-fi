@@ -14,6 +14,7 @@ const ProfileUpdateForm = props => {
         submitting,
         error,
         regError,
+        initialValues,
     } = props;
     const errorMsg = error || regError;
     
@@ -36,16 +37,18 @@ const ProfileUpdateForm = props => {
                 label="Type"
                 extraProps={{ fluid: true, options: typeOptions }}
                 validate={[isRequired]}
+                value="Business"
                 addMargin
             />
             <Field
-                name="type"
+                name="name"
                 component={renderFieldStyled}
-                label="Type"
+                label="name"
                 extraProps={{ fluid: true }}
                 validate={[isRequired]}
                 addMargin
             />
+            <p>"Item or items you are donating"</p>
             <Field
                 name="laptop"
                 type="checkbox"

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 
 import styled from 'styled-components';
+import { List } from 'semantic-ui-react';
 
 import { AUTH_TYPES } from '../data/constants';
 
@@ -15,16 +16,33 @@ import { AUTH_TYPES } from '../data/constants';
  *     to be used by styled-components for styling
  */
 const DonationPage = (props) => {
-    console.log(props);
+    const listItems = [];
+    
+    for (const nonprofit of props.nonProfits) {
+        listItems.push(
+            <List.Item key={nonprofit.id}>
+                {nonprofit.name}
+            </List.Item>
+        );
+    }
+    
     return (
-        <div className={props.className}>
-            Hello World!
-        </div>
+        <List divided relaxed className={props.className}>
+            {listItems}
+        </List>
     );
 };
 
 DonationPage.propTypes = {
     className: PropTypes.string,
+    nonProfits: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+    })),
+};
+
+DonationPage.defaultProps = {
+    nonProfits: [],
 };
 
 const DonationPageStyled = styled(DonationPage)`

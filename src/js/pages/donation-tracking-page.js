@@ -9,7 +9,7 @@ import { List } from 'semantic-ui-react';
 import Header from '../ui/header';
 import Button from '../ui/button';
 
-import { AUTH_TYPES, USER_TYPES } from '../../data/constants';
+import { AUTH_TYPES, USER_TYPES, TECHNOLOGY_TYPES } from '../../data/constants';
 
 import { PAGES } from '../../data/constants';
 
@@ -17,17 +17,19 @@ const DonationItem = (props) => {
     const { donation } = props;
     let button = null;
     let donationType = null;
-    if (donation.laptop) {
-        donationType = 'Laptop';
-    }
-    else if (donation.smartphone) {
-        donationType = 'Smartphone';
-    }
-    else if (donation.desktop) {
-        donationType = 'Desktop';
-    }
-    else if (donation.tablet) {
-        donationType = 'Tablet';
+    switch (donation.type) {
+        case TECHNOLOGY_TYPES.LAPTOP:
+            donationType = 'Laptop';
+            break;
+        case TECHNOLOGY_TYPES.SMARTPHONE:
+            donationType = 'Smartphone';
+            break;
+        case TECHNOLOGY_TYPES.DESKTOP:
+            donationType = 'Desktop';
+            break;
+        case TECHNOLOGY_TYPES.TABLET:
+            donationType = 'Tablet';
+            break;
     }
     
     // if the donation isn't ready
@@ -90,6 +92,7 @@ const DonationTrackingPage = (props) => {
             <DonationItem
                 key={donation.id}
                 donation={donation}
+                userType={props.userType}
             />
         );
     }

@@ -6,16 +6,10 @@ import styled from 'styled-components';
 
 import { PAGES } from '../data/constants';
 
-<<<<<<< HEAD
 import SplashPage from './pages/splash-page';
 import AuthPage from './pages/auth-page';
 import DonationPage from './pages/donation-page';
-=======
-import SplashPage from './splash-page';
-import AuthPage from './auth-page';
-import DonationPage from './donation-page';
-import DonateFormPage from './donation-form-page';
->>>>>>> 5686d1896db4ce42cbfe92629eb4af1b6b2b693a
+import DonateFormPage from './pages/donation-form-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,

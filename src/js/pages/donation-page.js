@@ -9,12 +9,8 @@ import Header from '../ui/header';
 
 import { AUTH_TYPES, USER_TYPES } from '../../data/constants';
 
-<<<<<<< HEAD
 import { setCurrentPage, setCurrentNonProfit } from '../../data/actions';
-import { PAGES } from 'constants';
-=======
-import { setCurrentPage, setCurrentNonProfit } from '../data/actions';
-import { PAGES } from '../data/constants';
+import { PAGES } from '../../data/constants';
 
 const DonationListItem = (props) => (
     <List.Item
@@ -29,7 +25,6 @@ const DonationListItem = (props) => (
 const DonationListItemStyled = styled(DonationListItem)`
     cursor: pointer;
 `;
->>>>>>> 5686d1896db4ce42cbfe92629eb4af1b6b2b693a
 
 /* DonationPage:
  * A component that handles donations

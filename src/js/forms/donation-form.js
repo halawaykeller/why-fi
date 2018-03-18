@@ -56,6 +56,15 @@ const DonationForm = props => {
                 addMargin
             />
             <Field
+                name="address"
+                type="text"
+                component={renderFieldStyled}
+                label="Address"
+                extraProps={{ fluid: true }}
+                validate={[isRequired]}
+                addMargin
+            />
+            <Field
                 name="type"
                 component={renderSelectFieldStyled}
                 label="Type"

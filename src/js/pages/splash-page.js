@@ -7,9 +7,7 @@ import HeroImage from '../hero-image';
 import SplashPageColumn from './splash-page-col';
 import DonateAction from '../donate-action';
 import UserActions from '../user-actions';
-import HookGraph1 from '../hook-graph1';
-import HookGraph3 from '../hook-graph3';
-import HookGraph2 from '../hook-graph2';
+import HookGraph from '../hook-graph';
 import HookContent from '../hook-content';
 
 /* SplashPage:
@@ -25,10 +23,8 @@ const SplashPage = (props) => (
         <SplashPageColumn
             // title='Internet Usage Statistics'
         >
-            <HookGraph1 />
-            <HookGraph2 />
-            <HookGraph3 />
             <h1>Internet Usage Statistics</h1>
+            <HookGraph />
 
         </SplashPageColumn>
         <SplashPageColumn

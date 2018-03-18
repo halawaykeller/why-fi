@@ -16,7 +16,7 @@ const HookGraph = (props) => (
         <AreaChart width={600} height={400} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
-            <YAxis tick={false} type="number" label={{ value: 'Pertentage of internet adapotors', angle: -90 }}/>
+            <YAxis tick={false} type="number" label={{ value: 'Percentage of internet adopters', angle: -90 }}/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Area name='Overall internet adoption' type='monotone' dataKey='internet_usage' stroke='#8884d8' fill='#8884d8' />
@@ -27,7 +27,7 @@ const HookGraph = (props) => (
         <AreaChart width={600} height={400} data={education_level} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
-            <YAxis tick={false} type="number" label={{ value: 'Pertentage of internet adapotors', angle: -90 }}/>
+            <YAxis tick={false} type="number" label={{ value: 'Percentage of internet adopters', angle: -90 }}/>
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Area name='Less than highschool' type='monotone' dataKey='less_than_hs' stackId="1" stroke='#8884d8' fill='#8884d8' />
@@ -44,7 +44,7 @@ const HookGraph = (props) => (
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name" label={{value: 'Period from 2000-2018', position: 'bottom'}}/>
             <Label value='From 2000-2018' offset={0} position="insideBottom" />
-            <YAxis tick={false} type="number" label={{ value: 'Pertentage of internet adapotors', angle: -90 }} />
+            <YAxis tick={false} type="number" label={{ value: 'Percentage of internet adopters', angle: -90 }} />
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Area name='Less than 30,000' type='monotone' dataKey='low'      stackId="1" stroke='#8884d8' fill='#8884d8' />
@@ -65,7 +65,7 @@ const HookGraph = (props) => (
 const HookGraphStyled = styled(HookGraph)`
 max-width: 60%;
     @media (max-width: 700px) {
-        width: 90%;
+        max-width: 90%;
     }
 `;
 

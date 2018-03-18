@@ -27,6 +27,13 @@ const AuthPage = (props) => {
     let onSubmit = props.onLogin;
     let error = {};
     let registrationInfo = {};
+    console.log(props.uid);
+    
+    // We're already logged in - redirect
+    if (props.uid) {
+        console.log('hi?');
+        props.onAlreadyLoggedIn();
+    }
     
     if (isRegistration) {
         const isProfileUpdate = props.authPage == 2;
@@ -58,14 +65,18 @@ const AuthPageStyled = styled(AuthPage)`
 
 const ms2p = ({
     ui: { auth: { authType, authPage, registrationUserType } },
-    firebase: { authError },
+    firebase: { authError, auth: { uid } },
 }) => ({
     authType,
     authPage,
     registrationUserType,
     authError,
+    uid,
 });
 const md2p = (dispatch, ownProps) => ({
+    onAlreadyLoggedIn: () => {
+        dispatch(setCurrentPage(PAGES.DONATION_TRACKING));
+    },
     onLogin: ({ email, password }) => {
         ownProps.firebase.login({ email, password }).then(() => {
             dispatch(setCurrentPage(PAGES.DONATION_TRACKING));

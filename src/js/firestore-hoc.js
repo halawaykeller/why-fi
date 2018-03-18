@@ -1,21 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firestoreConnect, withFirestore } from 'react-redux-firebase';
+import { firestoreConnect } from 'react-redux-firebase';
 import cloneDeep from 'lodash/cloneDeep';
 import isArray from 'lodash/isArray';
 
 // This sets up the user filtering query that should be present on all lists
-const UnconnectedFirestoreFilterHOC = (connections, userField) => 
+const UnconnectedFirestoreFilterHOC = (connections) => 
     (Component) => 
     (props) =>
 {
-    const { user, ...componentProps } = props;
+    const { user, userType, ...componentProps } = props;
     const filteredConnections = [];
     
     for (const connection of connections) {
         let filteredConnection = cloneDeep(connection);
-        const whereUserFilter = [userField, '==', user];
-        console.log(whereUserFilter);
+        const whereUserFilter = [userType, '==', user];
         
         // if a where is already passed, just add this where to it
         if (filteredConnection.where) {
@@ -46,14 +45,15 @@ const UnconnectedFirestoreFilterHOC = (connections, userField) =>
     return <FirestoreComponent {...componentProps} />;
 };
 
-const ms2p = (state) => ({
-    user: state.firebase.auth.uid,
+const ms2p = ({ firebase: { auth, profile } }) => ({
+    user: auth.uid,
+    userType: profile.type,
 });
 
 // This sets up the connect for the unconnected HOC, that way it has access
 // to the signed in user's uid
-const FirestoreFilterHOC = (connections, userField) => (Component) => (props) => {
-    const FirestoreComponent = UnconnectedFirestoreFilterHOC(connections, userField)(
+const FirestoreFilterHOC = (connections) => (Component) => (props) => {
+    const FirestoreComponent = UnconnectedFirestoreFilterHOC(connections)(
         Component
     );
     const ConnectedFirestoreComponent = connect(ms2p, () => ({}))(

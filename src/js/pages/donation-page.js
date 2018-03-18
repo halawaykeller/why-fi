@@ -48,7 +48,7 @@ const DonationPage = (props) => {
     return (
         <React.Fragment>
             <Header as='h2'></Header>
-            <List className={props.className}>
+            <List relaxed divided className={props.className}>
                 {listItems}
             </List>
         </React.Fragment>

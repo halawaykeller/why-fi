@@ -9,8 +9,27 @@ import Header from '../ui/header';
 
 import { AUTH_TYPES, USER_TYPES } from '../../data/constants';
 
+<<<<<<< HEAD
 import { setCurrentPage, setCurrentNonProfit } from '../../data/actions';
 import { PAGES } from 'constants';
+=======
+import { setCurrentPage, setCurrentNonProfit } from '../data/actions';
+import { PAGES } from '../data/constants';
+
+const DonationListItem = (props) => (
+    <List.Item
+        key={props.nonprofit.id}
+        onClick={props.onClick.bind(this, props.nonprofit.id)}
+        className={props.className}
+    >
+        {props.nonprofit.name}
+    </List.Item>
+);
+
+const DonationListItemStyled = styled(DonationListItem)`
+    cursor: pointer;
+`;
+>>>>>>> 5686d1896db4ce42cbfe92629eb4af1b6b2b693a
 
 /* DonationPage:
  * A component that handles donations
@@ -24,9 +43,10 @@ const DonationPage = (props) => {
     
     for (const nonprofit of props.nonProfits) {
         listItems.push(
-            <List.Item key={nonprofit.id}>
-                {nonprofit.name}
-            </List.Item>
+            <DonationListItemStyled
+                nonprofit={nonprofit}
+                onClick={props.onClick}
+            />
         );
     }
     
@@ -70,7 +90,7 @@ const md2p = (dispatch) => ({
 });
 
 const DonationPageSmart = firestoreConnect([
-    { collection: 'users', where: [ ['type', '==', USER_TYPES.NONPROFIT], ['hiatus', '!=', true]] }
+    { collection: 'users', where: [ ['type', '==', USER_TYPES.NONPROFIT], ['hiatus', '==', false]] }
 ])(connect(ms2p, md2p)(DonationPageStyled));
 
 export default DonationPageSmart;

@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 import { Message, Button } from 'semantic-ui-react';
 
-import { renderSelectFieldStyled, renderFieldStyled } from './fields';
+import { renderSelectFieldStyled, renderFieldStyled, renderCheckboxFieldStyled } from './fields';
 import { isRequired } from './validation';
 
 import { USER_TYPES } from '../../data/constants';
@@ -45,6 +45,24 @@ const ProfileUpdateForm = props => {
                 extraProps={{ fluid: true }}
                 validate={[isRequired]}
                 addMargin
+            />
+            <Field
+                name="laptops"
+                type="checkbox"
+                component={renderCheckboxFieldStyled}
+                label="Laptops"
+            />
+            <Field
+                name="smartphones"
+                type="checkbox"
+                component={renderCheckboxFieldStyled}
+                label="Smartphones"
+            />
+            <Field
+                name="tablets"
+                type="checkbox"
+                component={renderCheckboxFieldStyled}
+                label="Tablets"
             />
             { errorMsg && <Message error content={errorMsg} /> }
             <Button type="submit" disabled={submitting}>

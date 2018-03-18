@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withFirestore } from 'react-redux-firebase';
+
+import FirestoreFilter from '../firestore-hoc';
 
 import Header from '../ui/header';
 import DonateForm from '../forms/donation-form';
@@ -23,6 +24,7 @@ const DonationFormPage = (props) => (
             form={`donateForm${props.currentNonProfit}`}
             initialValues={{nonprofit: props.currentNonProfit}}
             onSubmit={props.onSubmit}
+            businesses={props.users}
         />
     </React.Fragment>
 );
@@ -32,14 +34,25 @@ DonationFormPage.propTypes = {
     currentNonProfit: PropTypes.string,
 };
 
-const ms2p = ({ ui: { donate: { currentNonProfit } } }) => ({ currentNonProfit });
+const ms2p = ({ 
+    ui: { donate: { currentNonProfit } },
+    firestore: { ordered: { users } },
+}) => ({
+    currentNonProfit,
+    users,
+});
 const md2p = (dispatch, ownProps) => ({
     onSubmit: (values) => {
-        ownProps.firestore.add('donations', values);
+        const setUpValues = { ...values };
+        setUpValues.refurbished = values.business ? false : true;
+        
+        ownProps.firestore.add('donations', setUpValues);
         dispatch(setCurrentPage(PAGES.DONATION_CONFIRMATION_FORM));
     }
-})
+});
 
-const DonationFormPageSmart = withFirestore(connect(ms2p, md2p)(DonationFormPage));
+const DonationFormPageSmart = FirestoreFilter(
+    [ { collection: 'users', where: [ 'type', '==', USER_TYPES.BUSINESS ] } ]
+)(connect(ms2p, md2p)(DonationFormPage));
 
 export default DonationFormPageSmart;

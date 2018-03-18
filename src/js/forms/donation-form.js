@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-import { renderFieldStyled, renderSelectFieldStyled } from './fields';
+import { renderFieldStyled, renderSelectFieldStyled, renderCheckboxFieldStyled } from './fields';
 import { isRequired } from './validation';
 
 import { PrimaryButton as Button } from '../ui/button';
@@ -13,10 +13,11 @@ const DonationForm = props => {
         handleSubmit,
         submitting,
         error,
+        businesses
     } = props;
     const errorMsg = error;
     
-     const typeOptions = [
+    const typeOptions = [
         {
             value: TECHNOLOGY_TYPES.LAPTOP,
             text: "Laptop",
@@ -33,7 +34,18 @@ const DonationForm = props => {
             value: TECHNOLOGY_TYPES.TABLET,
             text: "Tablet",
         },
-    ]
+    ];
+    
+    const businessOptions = [];
+    
+    for (const business of businesses) {
+        businessOptions.push(
+            {
+                value: business.id,
+                text: business.name,
+            }
+        );
+    }
     
     return (
         <form onSubmit={handleSubmit}>
@@ -62,6 +74,19 @@ const DonationForm = props => {
                 label="Address"
                 extraProps={{ fluid: true }}
                 validate={[isRequired]}
+                addMargin
+            />
+            <Field
+                name="refurbish"
+                type="checkbox"
+                component={renderCheckboxFieldStyled}
+                label="Does your device need to be refurbished?"
+            />
+            <Field
+                name="business"
+                component={renderSelectFieldStyled}
+                label="Choose a Business to drop off your donation for Refurbishment"
+                extraProps={{ fluid: true, options: businessOptions }}
                 addMargin
             />
             <Field

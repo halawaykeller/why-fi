@@ -27,11 +27,9 @@ const AuthPage = (props) => {
     let onSubmit = props.onLogin;
     let error = {};
     let registrationInfo = {};
-    console.log(props.uid);
     
     // We're already logged in - redirect
     if (props.uid) {
-        console.log('hi?');
         props.onAlreadyLoggedIn();
     }
     

@@ -32,31 +32,26 @@ const DonationItem = (props) => {
             break;
     }
     
-    // if the donation isn't ready
-    if (!donation.ready) {
-        // if there's not a business set and we're a nonprofit, add an arrived button
-        if (props.userType == USER_TYPES.NONPROFIT && !donation.business) {
-            button = (
-                <Button 
-                    content='Arrived'
-                />
-            );
-        }
+    // if the donation isn't ready to be dropped off
+    if (!donation.refurbished) {
         // if we're a business, add a refurbished button
-        else if (props.userType == USER_TYPES.BUSINESS) {
+        if (props.userType == USER_TYPES.BUSINESS) {
             button = (
                 <Button 
                     content='Refurbished'
+                    onClick={props.onRefurbish.bind(this, donation.id)}
                 />
             );
         }
     }
-    else {
-        // if it's ready, and we're a nonprofit, and there's a business - show an arrived button
-        if (props.userType == USER_TYPES.NONPROFIT && donation.business) {
+    else if (!donation.arrived) {
+        // if it's ready and not arrived, and we're a nonprofit
+        // show an arrived button
+        if (props.userType == USER_TYPES.NONPROFIT) {
             button = (
                 <Button 
                     content='Arrived'
+                    onClick={props.onArrive.bind(this, donation.id)}
                 />
             );
         }
@@ -93,6 +88,8 @@ const DonationTrackingPage = (props) => {
                 key={donation.id}
                 donation={donation}
                 userType={props.userType}
+                onRefurbish={props.onRefurbish}
+                onArrive={props.onArrive}
             />
         );
     }
@@ -131,7 +128,13 @@ const ms2p = ({
     userType: type,
 });
 
-const md2p = (dispatch) => ({
+const md2p = (dispatch, ownProps) => ({
+    onRefurbish: (donationId) => {
+        ownProps.firestore.update(`donations/${donationId}`, { refurbished: true });
+    },
+    onArrive: (donationId) => {
+        ownProps.firestore.update(`donations/${donationId}`, { arrived: true });
+    }
 });
 
 const DonationTrackingPageSmart = FirestoreFilter(

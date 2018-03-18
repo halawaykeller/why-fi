@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Header from './ui/header';
-import DonateForm from './forms/donation-form';
+import Header from '../ui/header';
+import DonateForm from '../forms/donation-form';
 
-import { AUTH_TYPES, USER_TYPES, PAGES } from '../data/constants';
+import { AUTH_TYPES, USER_TYPES, PAGES } from '../../data/constants';
 
 /* DonationPage:
  * A component that handles donations

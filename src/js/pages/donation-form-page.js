@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { withFirestore } from 'react-redux-firebase';
-
-
-import FirestoreFilter from '../firestore-hoc';
+import { firestoreConnect } from 'react-redux-firebase';
 
 
 import Header from '../ui/header';
@@ -58,8 +55,8 @@ const md2p = (dispatch, ownProps) => ({
 });
 
 
-const DonationFormPageSmart = FirestoreFilter(
-    [ { collection: 'users', where: [ 'type', '==', USER_TYPES.BUSINESS ] } ]
+const DonationFormPageSmart = firestoreConnect(
+    [ { collection: 'users', where: [[ 'type', '==', USER_TYPES.BUSINESS ], [ 'hiatus', '==', false ]] } ]
 )(connect(ms2p, md2p)(DonationFormPage));
 
 export default DonationFormPageSmart;

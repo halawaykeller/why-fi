@@ -103,7 +103,7 @@ const md2p = (dispatch, ownProps) => ({
         });
     },
     onProfileUpdate: (values) => {
-        ownProps.firebase.updateProfile(values);
+        ownProps.firebase.updateProfile({ hiatus: false, ...values });
         dispatch(setCurrentPage(PAGES.HOME));
     }
 });

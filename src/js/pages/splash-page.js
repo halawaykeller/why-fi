@@ -10,12 +10,6 @@ import UserActions from '../user-actions';
 
 import HookGraph from '../hook-graph';
 
-import HookGraphStyled from '../hook-graph';
-import HookGraph3 from '../hook-graph3';
-import HookGraph2 from '../hook-graph2';
-
-import HookContent from '../hook-content';
-
 /* SplashPage:
  * A component that holds the content for the splash page
  *
@@ -29,8 +23,6 @@ const SplashPage = (props) => (
         <SplashPageColumn
             // title='Internet Usage Statistics'
         >
-
-            <h1>Internet Usage Statistics</h1>
             <HookGraph />
 
         </SplashPageColumn>

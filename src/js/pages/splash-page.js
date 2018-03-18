@@ -20,8 +20,9 @@ const SplashPage = (props) => (
     <div className={props.className}>
         <HeroImage />
         <SplashPageColumn
-            title='Internet Usage Statistics'
+            // title='Internet Usage Statistics'
         >
+            <h1>Internet Usage Statistics</h1>
             <HookGraph />
         </SplashPageColumn>
         <SplashPageColumn
@@ -33,7 +34,7 @@ const SplashPage = (props) => (
         <SplashPageColumn
             title='Project Sponsors'
         >
-            <h3>We welcome community partners and corporate sponsorships. Please speak with a member of our team if your organization is interested in getting involved.</h3>
+            <h3>We welcome community partners and corporate sponsorships. We are presently seeking an internet provider partner. Please speak with a member of our team if your organization is interested in getting involved!</h3>
         </SplashPageColumn>
     </div>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/get';
 
-import { Input, Label, Select } from 'semantic-ui-react';
+import { Input, Label, Select, Checkbox } from 'semantic-ui-react';
 import styled from 'styled-components';
 
 /* renderField:
@@ -66,3 +66,34 @@ export const renderSelectField = ({
 export const renderSelectFieldStyled = styled(renderSelectField)`
     ${ props => props.addMargin ? 'margin: 10px 0;' : null }
 `;
+
+
+
+/* renderCheckboxField:
+ * A component for rendering checkbox fields for redux forms.
+ * Currently only supports text-based fields.
+ */
+export const renderCheckboxField = ({
+    input,
+    label,
+    meta: { touched, error },
+    className,
+    extraProps,
+}) => (
+    <div className={className}>
+        {touched && error && (
+            <Label pointing="below" basic color='red'>{error}</Label>
+        )}
+        <Checkbox
+            {...input}
+            {...extraProps}
+            error={error && touched}
+            onChange={(param,data) => input.onChange(data.checked)}
+        />
+    </div>
+);
+
+export const renderCheckboxFieldStyled = styled(renderCheckboxField)`
+    ${ props => props.addMargin ? 'margin: 10px 0;' : null }
+`;
+

@@ -59,6 +59,7 @@ AuthPage.propTypes = {
 
 const AuthPageStyled = styled(AuthPage)`
     height: 100%;
+    width: 100%;
 `;
 
 const ms2p = ({

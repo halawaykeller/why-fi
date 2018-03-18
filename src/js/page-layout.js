@@ -54,12 +54,12 @@ const md2p = (dispatch, ownProps) => ({
 const PageHeaderMenuSmart = withFirestore(connect(ms2p, md2p)(PageHeaderMenu));
 
 const PageLayout = (props) => {
-    const { PageComponent, ...contentProps } = props;
+    const { PageComponent, className, ...contentProps } = props;
     
     return (
         <React.Fragment>
             <PageHeaderMenuSmart />
-            <div className={props.className}>
+            <div className={className}>
                 <PageComponent {...contentProps} />
             </div>
         </React.Fragment>

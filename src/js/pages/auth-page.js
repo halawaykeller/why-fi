@@ -29,7 +29,7 @@ const AuthPage = (props) => {
     let registrationInfo = {};
     
     // We're already logged in - redirect
-    if (props.uid && !props.loggingIn) {
+    if (!isRegistration && props.uid && !props.loggingIn) {
         props.onAlreadyLoggedIn();
     }
     

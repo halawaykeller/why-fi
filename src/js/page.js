@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 import { PAGES } from '../data/constants';
 
+import PageLayout from './page-layout';
+
 import SplashPage from './pages/splash-page';
 import AuthPage from './pages/auth-page';
 import DonationPage from './pages/donation-page';
@@ -36,10 +38,13 @@ const Page = (props) => {
     // Allow for the passing of props to the content's component
     const { className, currentPage, ...contentProps } = props;
     const ContentComponent = contentComponents[currentPage];
+    const PageLayoutComponent = currentPage == PAGES.HOME 
+        ? <ContentComponent {...contentProps} />
+        : (<PageLayout PageComponent={ContentComponent} {...contentProps} />);
     
     return (
         <div className={className}>
-            <ContentComponent {...contentProps} />
+            {PageLayoutComponent}
         </div>
     );
     

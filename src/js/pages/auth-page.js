@@ -12,7 +12,7 @@ import ProfileUpdateForm from '../forms/profile-update-form';
 
 import { AUTH_TYPES, PAGES } from '../../data/constants';
 
-import { setAuthPage, setCurrentPage } from '../../data/actions';
+import { setAuthPage, setCurrentPage, setLoggingIn } from '../../data/actions';
 
 /* AuthPage:
  * A component that handles auth for our users
@@ -29,7 +29,7 @@ const AuthPage = (props) => {
     let registrationInfo = {};
     
     // We're already logged in - redirect
-    if (props.uid) {
+    if (props.uid && !props.loggingIn) {
         props.onAlreadyLoggedIn();
     }
     
@@ -62,22 +62,27 @@ const AuthPageStyled = styled(AuthPage)`
 `;
 
 const ms2p = ({
-    ui: { auth: { authType, authPage, registrationUserType } },
+    ui: { auth: { authType, authPage, registrationUserType, loggingIn } },
     firebase: { authError, auth: { uid } },
+    firebaseAuthIsReady,
 }) => ({
     authType,
     authPage,
     registrationUserType,
     authError,
+    loggingIn,
     uid,
+    firebaseAuthIsReady,
 });
 const md2p = (dispatch, ownProps) => ({
     onAlreadyLoggedIn: () => {
         dispatch(setCurrentPage(PAGES.DONATION_TRACKING));
     },
     onLogin: ({ email, password }) => {
+        dispatch(setLoggingIn(true));
         ownProps.firebase.login({ email, password }).then(() => {
-            dispatch(setCurrentPage(PAGES.DONATION_TRACKING));
+            dispatch(setLoggingIn(false));
+            dispatch(setCurrentPage(PAGES.HOME));
         });
     },
     onRegister: (values) => {

@@ -5,6 +5,7 @@ import { PAGES, AUTH_TYPES } from './constants';
 
 const defaultState = {
     currentPage: PAGES.HOME,
+    loggingIn: false,
     auth: {
         authType: AUTH_TYPES.LOGIN,
         authPage: null,
@@ -44,7 +45,11 @@ const uiReducer = (state = defaultState, action) => {
                 auth: {
                     registrationUserType: action.payload,
                 }
-            });   
+            });
+        case actionTypes.SET_LOGGING_IN:
+            return merge({}, state, {
+                loggingIn: action.payload
+            });
         default:
             return state;
     }

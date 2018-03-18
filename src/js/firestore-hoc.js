@@ -16,8 +16,11 @@ const UnconnectedFirestoreFilterHOC = (connections) =>
         let filteredConnection = cloneDeep(connection);
         const whereUserFilter = [userType, '==', user];
         
+        console.log(filteredConnection);
+        
         // if a where is already passed, just add this where to it
         if (filteredConnection.where) {
+            console.log('hey??');
             // if there already is an array of arrays, just add the
             // new user filter to it
             if (isArray(filteredConnection.where[0])) {
@@ -34,6 +37,7 @@ const UnconnectedFirestoreFilterHOC = (connections) =>
         else {
             filteredConnection.where = whereUserFilter;
         }
+        console.log(filteredConnection);
         
         filteredConnections.push(filteredConnection);
     }

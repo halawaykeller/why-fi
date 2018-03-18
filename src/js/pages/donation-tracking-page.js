@@ -122,7 +122,8 @@ const DonationTrackingPageStyled = styled(DonationTrackingPage)`
 
 const ms2p = ({
     firestore: { ordered: { donations } },
-    firebase: { profile: { type } }
+    firebase: { profile: { type } },
+    ui: { loggingIn },
 }) => ({
     donations,
     userType: type,

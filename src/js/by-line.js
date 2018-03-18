@@ -8,7 +8,7 @@ const ByLine = (props) => (
            Connecting old technology to new opportunities.
         </h4>
         <h2>
-            Access to technology is critical to success in our fast-paced world. Donate your gently used laptop, smartphone, or tablet to create opportunity for someone in need.
+            Access to technology is critical to success in our fast-paced world. Donate your gently used laptop, smartphone, or tablet to help connect someone in need to a brighter future.
         </h2>
     </React.Fragment>
     

@@ -9,7 +9,7 @@ const HookGraph = (props) => (
     
 
     <React.Fragment>
-        <p>Internet adapotors overall from 2000-2018</p>
+        <h1>Internet Adoption from 2000-2018</h1>
         <AreaChart width={600} height={400} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
@@ -18,7 +18,9 @@ const HookGraph = (props) => (
             <Tooltip/>
             <Area name='Overall internet adoption' type='monotone' dataKey='internet_usage' stroke='#8884d8' fill='#8884d8' />
         </AreaChart>
-        <p>Internet adapotors based on education level from 2000-2018</p>
+        
+        <h1>Internet Usage Based on Education from 2000-2018</h1>
+        <h3>Yellow = college+. Green = some college. Purple = less than high school education.</h3>
         <AreaChart width={600} height={400} data={education_level} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name"/>
@@ -29,7 +31,9 @@ const HookGraph = (props) => (
             <Area name='Some college' type='monotone' dataKey='some_college' stackId="1" stroke='#82ca9d' fill='#82ca9d' />
             <Area name='College plus' type='monotone' dataKey='college_plus' stackId="1" stroke='#ffc658' fill='#ffc658' />
         </AreaChart>
-        <p>Internet adapotors based on income from 2000-2018</p>
+        
+        <h1>Internet Usage Based on Average Household Income from 2000-2018</h1>
+        <h3>Purple = low income (less than $30k per year). Green = mid to low income ($30-$50k per year). Yellow = mid-high income ($50-$75k per year). Blue = high income ($75k plus).</h3>
         <AreaChart width={600} height={400} data={income} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <Legend verticalAlign="top" height={36}/>
             <XAxis dataKey="name" label={{value: 'Period from 2000-2018', position: 'bottom'}}/>

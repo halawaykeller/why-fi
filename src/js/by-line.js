@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ByLine = (props) => (
-    <p className={props.className}>
-    Some Text
-    </p>
+    <React.Fragment>
+        <h2 className={props.className}>
+           "Access to technology is critical to success in our world." 
+        </h2>
+        <h5>
+            "Donate your laptop, smartphone, or tablet to someone in need"
+        </h5>
+    </React.Fragment>
+    
 );
     
 ByLine.propTypes = {
@@ -15,6 +21,7 @@ ByLine.propTypes = {
 const ByLineStyled = styled(ByLine)`
     color: black;
     text-align: left;
+    font-size: 4em;
 `;
 
 export default ByLineStyled;

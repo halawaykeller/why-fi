@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
 import { data, data01, data02, education_level, income } from '../data/graph-data'
-import { LineChart, Line, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Pie, PieChart, Area, AreaChart } from 'recharts';
+import { CartesianGrid, XAxis, YAxis, Tooltip, Area, AreaChart } from 'recharts';
+
 
 const HookGraph = (props) => (
 
@@ -28,7 +29,7 @@ const HookGraph = (props) => (
         
         <AreaChart width={600} height={400} data={income} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
             <XAxis dataKey="name"/>
-            <YAxis/>
+            <YAxis type="number" domain={[0, 100]} />
             <CartesianGrid strokeDasharray="3 3"/>
             <Tooltip/>
             <Area type='monotone' dataKey='low'      stackId="1" stroke='#8884d8' fill='#8884d8' />

@@ -5,9 +5,7 @@ import styled from 'styled-components';
 
 import bkgImg from '../images/girl_1280.jpg';
 
-import Title from './title';
-import ByLine from './by-line';
-
+import HeroContainer from './hero-container';
 
 /* HeroImage:
  * A component that holds a hero image
@@ -18,8 +16,7 @@ import ByLine from './by-line';
  */
 const HeroImage = (props) => (
     <div className={props.className}>
-       <Title/>
-       <ByLine/>
+        <HeroContainer />
     </div>
 );
 
@@ -28,7 +25,7 @@ HeroImage.propTypes = {
 };
 
 const HeroImageStyled = styled(HeroImage)`
-    height: 100vh;
+    height: 45vw;
     background-image: url(${bkgImg});
     padding: 40px;
     

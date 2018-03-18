@@ -10,3 +10,15 @@ available to those that are desperate for knowledge. We have a three step progra
 
 We programmers are testaments to what is possible with just a laptop and internet. The earlier those in poverty are 
 introduced to technology, the more of a chance they can stop the poverty cycle in their community.
+
+TECHNOLOGIES USED
+React Redux
+Semantic UI
+AWS Cloud9 
+Firestore
+Styled Components
+JavaScript
+HTML5
+CSS
+
+

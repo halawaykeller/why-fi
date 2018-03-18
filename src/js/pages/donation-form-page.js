@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import { withFirestore } from 'react-redux-firebase';
-import styled from 'styled-components';
+
+
+import FirestoreFilter from '../firestore-hoc';
+
 
 import Header from '../ui/header';
 import DonateForm from '../forms/donation-form';
@@ -18,14 +22,15 @@ import { setCurrentPage } from '../../data/actions';
  *     to be used by styled-components for styling
  */
 const DonationFormPage = (props) => (
-    <div class={props.className}>
+    <React.Fragment>
         <Header as='h2'>Fill out the form below to Donate</Header>
         <DonateForm
             form={`donateForm${props.currentNonProfit}`}
             initialValues={{nonprofit: props.currentNonProfit}}
             onSubmit={props.onSubmit}
+            businesses={props.users}
         />
-    </div>
+    </React.Fragment>
 );
 
 DonationFormPage.propTypes = {
@@ -33,25 +38,28 @@ DonationFormPage.propTypes = {
     currentNonProfit: PropTypes.string,
 };
 
-const DonationFormPageStyled = styled(DonationFormPage)`
-    height: 100%;
-    padding-top: 4em !important;
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
-    max-width: 50%;
-    
-`;
 
+const ms2p = ({ 
+    ui: { donate: { currentNonProfit } },
+    firestore: { ordered: { users } },
+}) => ({
+    currentNonProfit,
+    users,
+});
 
-const ms2p = ({ ui: { donate: { currentNonProfit } } }) => ({ currentNonProfit });
 const md2p = (dispatch, ownProps) => ({
     onSubmit: (values) => {
-        ownProps.firestore.add('donations', values);
+        const setUpValues = { ...values };
+        setUpValues.refurbished = values.business ? false : true;
+        
+        ownProps.firestore.add('donations', setUpValues);
         dispatch(setCurrentPage(PAGES.DONATION_CONFIRMATION_FORM));
     }
-})
+});
 
-const DonationFormPageSmart = withFirestore(connect(ms2p, md2p)(DonationFormPageStyled));
+
+const DonationFormPageSmart = FirestoreFilter(
+    [ { collection: 'users', where: [ 'type', '==', USER_TYPES.BUSINESS ] } ]
+)(connect(ms2p, md2p)(DonationFormPage));
 
 export default DonationFormPageSmart;

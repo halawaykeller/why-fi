@@ -16,12 +16,9 @@ import { AUTH_TYPES } from '../data/constants';
  *     to be used by styled-components for styling
  */
 const DonationPage = (props) => {
-    console.log(props);
     const listItems = [];
     
-    console.log(props.nonProfits);
     for (const nonprofit of props.nonProfits) {
-        console.log(nonprofit);
         listItems.push(
             <List.Item key={nonprofit.id}>
                 {nonprofit.name}

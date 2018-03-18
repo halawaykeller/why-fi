@@ -16,6 +16,21 @@ const LoginForm = props => {
     } = props;
     const errorMsg = error || loginError;
     
+     const typeOptions = [
+        {
+            value: TECHNOLOGY_TYPES.LAPTOP,
+            text: "Laptop",
+        },
+        {
+            value: TECHNOLOGY_TYPES.DESKTOP,
+            text: "Desktop",
+        },
+        {
+            value: TECHNOLOGY_TYPES.TABLET,
+            text: "Tablet",
+        },
+    ]
+    
     return (
         <form onSubmit={handleSubmit}>
             <Field
@@ -33,6 +48,14 @@ const LoginForm = props => {
                 component={renderFieldStyled}
                 label="Email"
                 extraProps={{ fluid: true }}
+                validate={[isRequired]}
+                addMargin
+            />
+            <Field
+                name="type"
+                component={renderSelectFieldStyled}
+                label="Type"
+                extraProps={{ fluid: true, options: typeOptions }}
                 validate={[isRequired]}
                 addMargin
             />

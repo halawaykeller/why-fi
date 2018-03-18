@@ -6,9 +6,9 @@ import { SubmissionError } from 'redux-form';
 
 import styled from 'styled-components';
 
-import LoginForm from './forms/login-form';
-import RegisterForm from './forms/register-form';
-import ProfileUpdateForm from './forms/profile-update-form';
+import LoginForm from '../forms/login-form';
+import RegisterForm from '../forms/register-form';
+import ProfileUpdateForm from '../forms/profile-update-form';
 
 import { AUTH_TYPES } from '../data/constants';
 

@@ -5,7 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 import styled from 'styled-components';
 import { List } from 'semantic-ui-react';
-import Header from './ui/header';
+import Header from '../ui/header';
 
 import { AUTH_TYPES, USER_TYPES } from '../data/constants';
 

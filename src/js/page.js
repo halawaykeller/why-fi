@@ -9,11 +9,13 @@ import { PAGES } from '../data/constants';
 import SplashPage from './splash-page';
 import AuthPage from './auth-page';
 import DonationPage from './donation-page';
+import DonateFormPage from './donation-form-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,
     [PAGES.AUTH]: AuthPage,
     [PAGES.DONATION]: DonationPage,
+    [PAGES.DONATE_FORM]: DonateFormPage,
 };
 
 

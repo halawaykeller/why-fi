@@ -1,20 +1,20 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-
-import { renderFieldStyled } from './fields';
+import { renderFieldStyled, renderSelectFieldStyled } from './fields';
 import { isRequired } from './validation';
 
 import { PrimaryButton as Button } from '../ui/button';
 
-const LoginForm = props => {
+import { TECHNOLOGY_TYPES } from '../../data/constants';
+
+const DonationForm = props => {
     const { 
         handleSubmit,
         submitting,
         error,
-        loginError,
     } = props;
-    const errorMsg = error || loginError;
+    const errorMsg = error;
     
      const typeOptions = [
         {
@@ -24,6 +24,10 @@ const LoginForm = props => {
         {
             value: TECHNOLOGY_TYPES.DESKTOP,
             text: "Desktop",
+        },
+        {
+            value: TECHNOLOGY_TYPES.SMARTPHONE,
+            text: "Smartphone",
         },
         {
             value: TECHNOLOGY_TYPES.TABLET,
@@ -67,6 +71,4 @@ const LoginForm = props => {
     );
 };
 
-export default reduxForm({
-    form: 'auth' // a unique identifier for this form
-})(LoginForm);
+export default reduxForm({})(DonationForm);

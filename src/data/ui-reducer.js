@@ -10,7 +10,7 @@ const defaultState = {
         authPage: null,
     },
     donate: {
-        currentNonprofit: null,
+        currentNonProfit: null,
     }
 };
 
@@ -36,7 +36,7 @@ const uiReducer = (state = defaultState, action) => {
         case actionTypes.SET_CURRENT_NONPROFIT:
             return merge({}, state, {
                 donate: {
-                    currentNonprofit: action.payload,
+                    currentNonProfit: action.payload,
                 }
             });    
         default:

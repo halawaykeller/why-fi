@@ -5,8 +5,12 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 import styled from 'styled-components';
 import { List } from 'semantic-ui-react';
+import Header from './ui/header';
 
 import { AUTH_TYPES, USER_TYPES } from '../data/constants';
+
+import { setCurrentPage, setCurrentNonProfit } from '../data/actions';
+import { PAGES } from 'constants';
 
 /* DonationPage:
  * A component that handles donations
@@ -27,9 +31,12 @@ const DonationPage = (props) => {
     }
     
     return (
-        <List className={props.className}>
-            {listItems}
-        </List>
+        <React.Fragment>
+            <Header as='h2'></Header>
+            <List className={props.className}>
+                {listItems}
+            </List>
+        </React.Fragment>
     );
 };
 
@@ -55,8 +62,15 @@ const ms2p = ({
     nonProfits 
 });
 
+const md2p = (dispatch) => ({
+    onClick: (npId) => {
+        dispatch(setCurrentNonProfit(npId));
+        dispatch(setCurrentPage(PAGES.DONATE_FORM));
+    }
+});
+
 const DonationPageSmart = firestoreConnect([
-    { collection: 'users', where: ['type', '==', USER_TYPES.NONPROFIT] }
-])(connect(ms2p, () => ({}))(DonationPageStyled));
+    { collection: 'users', where: [ ['type', '==', USER_TYPES.NONPROFIT], ['hiatus', '!=', true]] }
+])(connect(ms2p, md2p)(DonationPageStyled));
 
 export default DonationPageSmart;

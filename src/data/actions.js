@@ -27,4 +27,4 @@ export const setAuthType = actionCreator(SET_AUTH_TYPE);
 export const setAuthPage = actionCreator(SET_AUTH_PAGE);
 
 // Set the current "auth page" of the system
-export const setCurrentNonprofit = actionCreator(SET_CURRENT_NONPROFIT);
+export const setCurrentNonProfit = actionCreator(SET_CURRENT_NONPROFIT);

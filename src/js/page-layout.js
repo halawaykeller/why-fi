@@ -66,4 +66,16 @@ const PageLayout = (props) => {
     );
 }
 
-export default PageLayout;
+const PageLayoutStyled = styled(PageLayout)`
+    height: 100%;
+    padding-top: 4em;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    max-width: 50%;
+    @media (max-width: 700px) {
+        max-width: 90%;
+    }
+`;
+
+export default PageLayoutStyled;

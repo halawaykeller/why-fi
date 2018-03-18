@@ -68,12 +68,6 @@ DonationPage.defaultProps = {
 };
 
 const DonationPageStyled = styled(DonationPage)`
-    height: 100%;
-    padding-top: 4em;
-    display: flex;
-    margin: 0 auto;
-    flex-direction: column;
-    max-width: 50%;
     
 `;
 

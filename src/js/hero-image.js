@@ -6,8 +6,12 @@ import styled from 'styled-components';
 import bkgImg from '../images/girl_1280.jpg';
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import Title from './title';
 import ByLine from './by-line';
+=======
+import title from '/title.js';
+>>>>>>> Stashed changes
 =======
 import title from '/title.js';
 >>>>>>> Stashed changes
@@ -23,8 +27,12 @@ import title from '/title.js';
 const HeroImage = (props) => (
     <div className={props.className}>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
        <Title/>
        <ByLine/>
+=======
+       <title/>
+>>>>>>> Stashed changes
 =======
        <title/>
 >>>>>>> Stashed changes

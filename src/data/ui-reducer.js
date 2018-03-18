@@ -8,6 +8,7 @@ const defaultState = {
     auth: {
         authType: AUTH_TYPES.LOGIN,
         authPage: null,
+        registrationUserType: null,
     },
     donate: {
         currentNonProfit: null,
@@ -32,13 +33,18 @@ const uiReducer = (state = defaultState, action) => {
                     authPage: action.payload,
                 }
             });
-            
         case actionTypes.SET_CURRENT_NONPROFIT:
             return merge({}, state, {
                 donate: {
                     currentNonProfit: action.payload,
                 }
-            });    
+            });
+        case actionTypes.SET_REGISTRATION_USER_TYPE:
+            return merge({}, state, {
+                auth: {
+                    registrationUserType: action.payload,
+                }
+            });   
         default:
             return state;
     }

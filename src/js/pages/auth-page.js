@@ -26,11 +26,13 @@ const AuthPage = (props) => {
     let FormComponent = LoginForm;
     let onSubmit = props.onLogin;
     let error = {};
+    let registrationInfo = {};
     
     if (isRegistration) {
         const isProfileUpdate = props.authPage == 2;
         FormComponent = isProfileUpdate ? ProfileUpdateForm : RegisterForm;
         onSubmit = isProfileUpdate ? props.onProfileUpdate : props.onRegister;
+        registrationInfo['initialValues'] = { type: props.registrationUserType };
     }
     
     if (props.authError) {
@@ -41,7 +43,7 @@ const AuthPage = (props) => {
     
     return (
         <div className={props.className}>
-            <FormComponent onSubmit={onSubmit} {...error} />
+            <FormComponent onSubmit={onSubmit} {...error} {...registrationInfo} />
         </div>
     );
 };
@@ -55,11 +57,12 @@ const AuthPageStyled = styled(AuthPage)`
 `;
 
 const ms2p = ({
-    ui: { auth: { authType, authPage } },
+    ui: { auth: { authType, authPage, registrationUserType } },
     firebase: { authError },
 }) => ({
     authType,
     authPage,
+    registrationUserType,
     authError,
 });
 const md2p = (dispatch, ownProps) => ({

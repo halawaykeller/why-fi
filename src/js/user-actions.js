@@ -7,21 +7,30 @@ import { Header} from 'semantic-ui-react';
 
 import { PrimaryButton as Button } from './ui/button';
 
-import { setCurrentPage, setAuthType, setAuthPage } from '../data/actions';
-import { PAGES, AUTH_TYPES } from '../data/constants';
+import { 
+    setCurrentPage,
+    setAuthType,
+    setAuthPage,
+    setRegistrationUserType,
+} from '../data/actions';
+import { PAGES, AUTH_TYPES, USER_TYPES } from '../data/constants';
 
 const Actions = (props) => (
     <div className={props.className}>
         <Header as='h3'>
-            Are you a {props.call} who wants to take action?
+            Are you a {
+                props.userType == USER_TYPES.BUSINESS 
+                    ? 'Business'
+                    : 'Non-Profit'
+            } who wants to take action?
         </Header>
         <Button
             content='Register'
-            onClick={props.onClick.bind(this, AUTH_TYPES.REGISTRATION)}
+            onClick={props.onClick.bind(this, AUTH_TYPES.REGISTRATION, props.userType)}
         />
         <Button
             content='Login'
-            onClick={props.onClick.bind(this, AUTH_TYPES.LOGIN)}
+            onClick={props.onClick.bind(this, AUTH_TYPES.LOGIN, props.userType)}
         />
     </div>
 );
@@ -32,9 +41,10 @@ const ActionsStyled = styled(Actions)`
 
 const ms2p = ({ ui: { currentPage } }) => ({ currentPage });
 const md2p = (dispatch) => ({
-    onClick: (authType) => {
+    onClick: (authType, userType) => {
         dispatch(setCurrentPage(PAGES.AUTH));
         dispatch(setAuthType(authType));
+        dispatch(setRegistrationUserType(userType));
         if (authType == AUTH_TYPES.REGISTRATION) {
             dispatch(setAuthPage(1));
         }
@@ -52,8 +62,8 @@ const ActionsSmart = connect(ms2p, md2p)(ActionsStyled);
  */
 const UserActions = (props) => (
     <div className={props.className}>
-        <ActionsSmart call="Business" />
-        <ActionsSmart call="Non-Profit" />
+        <ActionsSmart userType={USER_TYPES.BUSINESS} />
+        <ActionsSmart userType={USER_TYPES.NONPROFIT} />
     </div>
 );
 

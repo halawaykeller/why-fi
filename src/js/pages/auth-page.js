@@ -10,7 +10,7 @@ import LoginForm from '../forms/login-form';
 import RegisterForm from '../forms/register-form';
 import ProfileUpdateForm from '../forms/profile-update-form';
 
-import { AUTH_TYPES } from '../../data/constants';
+import { AUTH_TYPES, PAGES } from '../../data/constants';
 
 import { setAuthPage, setCurrentPage } from '../../data/actions';
 
@@ -67,8 +67,9 @@ const ms2p = ({
 });
 const md2p = (dispatch, ownProps) => ({
     onLogin: ({ email, password }) => {
-        ownProps.firebase.login({ email, password });
-        // dispatch(setCurrentPage(PAGES.HOME))
+        ownProps.firebase.login({ email, password }).then(() => {
+            dispatch(setCurrentPage(PAGES.DONATION_TRACKING));
+        });
     },
     onRegister: (values) => {
         const { email, password, retype_password } = values;
@@ -88,7 +89,7 @@ const md2p = (dispatch, ownProps) => ({
     },
     onProfileUpdate: (values) => {
         ownProps.firebase.updateProfile(values);
-        // dispatch(setCurrentPage(PAGES.HOME));
+        dispatch(setCurrentPage(PAGES.HOME));
     }
 });
 

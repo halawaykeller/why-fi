@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 const ByLine = (props) => (
     <React.Fragment>
-        <h2 className={props.className}>
-           Access to technology is critical to success in our fast-paced world. 
+        <h4 className={props.className}>
+           Connecting old technology to new opportunities.
+        </h4>
+        <h2>
+            Access to technology is critical to success in our fast-paced world. Donate your gently used laptop, smartphone, or tablet to create opportunity for someone in need.
         </h2>
-        <h5>
-            Donate your laptop, smartphone, or tablet to create opportunity for someone in need.
-        </h5>
     </React.Fragment>
     
 );

@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 import { Message, Button } from 'semantic-ui-react';
 
-import { renderSelectFieldStyled } from './fields';
+import { renderSelectFieldStyled, renderFieldStyled } from './fields';
 import { isRequired } from './validation';
 
 import { USER_TYPES } from '../../data/constants';
@@ -32,10 +32,17 @@ const ProfileUpdateForm = props => {
         <form onSubmit={handleSubmit}>
             <Field
                 name="type"
-                type="text"
                 component={renderSelectFieldStyled}
                 label="Type"
                 extraProps={{ fluid: true, options: typeOptions }}
+                validate={[isRequired]}
+                addMargin
+            />
+            <Field
+                name="type"
+                component={renderFieldStyled}
+                label="Type"
+                extraProps={{ fluid: true }}
                 validate={[isRequired]}
                 addMargin
             />

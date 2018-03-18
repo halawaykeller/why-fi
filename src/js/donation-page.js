@@ -27,7 +27,7 @@ const DonationPage = (props) => {
     }
     
     return (
-        <List divided relaxed className={props.className}>
+        <List className={props.className}>
             {listItems}
         </List>
     );

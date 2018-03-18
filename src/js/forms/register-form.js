@@ -47,7 +47,7 @@ const RegisterForm = props => {
             />
             { errorMsg && <Message error content={errorMsg} /> }
             <Button type="submit" disabled={submitting}>
-                Register
+                Next
             </Button>
         </form>
     );

@@ -10,12 +10,14 @@ import SplashPage from './pages/splash-page';
 import AuthPage from './pages/auth-page';
 import DonationPage from './pages/donation-page';
 import DonateFormPage from './pages/donation-form-page';
+import DonationConfirmationPage from './pages/donation-confirmation-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,
     [PAGES.AUTH]: AuthPage,
     [PAGES.DONATION]: DonationPage,
     [PAGES.DONATE_FORM]: DonateFormPage,
+    [PAGES.DONATION_CONFIRMATION_FORM]: DonationConfirmationPage,
 };
 
 

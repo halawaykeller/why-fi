@@ -6,7 +6,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import styled from 'styled-components';
 import { List } from 'semantic-ui-react';
 
-import { AUTH_TYPES } from '../data/constants';
+import { AUTH_TYPES, USER_TYPES } from '../data/constants';
 
 /* DonationPage:
  * A component that handles donations
@@ -56,7 +56,7 @@ const ms2p = ({
 });
 
 const DonationPageSmart = firestoreConnect([
-    { collection: 'users', where: ['type', '==', 'nonprofit'] }
+    { collection: 'users', where: ['type', '==', USER_TYPES.NONPROFIT] }
 ])(connect(ms2p, () => ({}))(DonationPageStyled));
 
 export default DonationPageSmart;

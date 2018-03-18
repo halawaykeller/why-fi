@@ -76,18 +76,15 @@ export const renderSelectFieldStyled = styled(renderSelectField)`
 export const renderCheckboxField = ({
     input,
     label,
-    meta: { touched, error },
+    meta: { touched },
     className,
     extraProps,
 }) => (
     <div className={className}>
-        {touched && error && (
-            <Label pointing="below" basic color='red'>{error}</Label>
-        )}
         <Checkbox
             {...input}
             {...extraProps}
-            error={error && touched}
+            label={get(label, 'content', label)}
             onChange={(param,data) => input.onChange(data.checked)}
         />
     </div>

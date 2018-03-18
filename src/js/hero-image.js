@@ -34,6 +34,9 @@ const HeroImageStyled = styled(HeroImage)`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    @media (max-width: 700px) {
+        height: 85vw;
+    }
 `;
 
 export default HeroImageStyled;

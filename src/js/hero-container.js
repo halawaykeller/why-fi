@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Title from './title';
 import ByLine from './by-line';
+import Tagline from './tag-line';
 import DonateAction from './donate-action';
 
 
@@ -12,6 +13,7 @@ const HeroContainer = (props) => (
     <div className={props.className}>
         <Title/>
         <ByLine/>
+        <Tagline/>
         <DonateAction />
     </div>
 );

@@ -16,7 +16,7 @@ Title.propTypes = {
 const TitleStyled = styled(Title)`
     color: black;
     text-align: left;
-    font-size: 6em
+    font-size: 6vw
 `;
 
 export default TitleStyled;

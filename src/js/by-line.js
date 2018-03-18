@@ -7,9 +7,6 @@ const ByLine = (props) => (
         <h4 className={props.className}>
            Connecting old technology to new opportunities.
         </h4>
-        <h2>
-            Access to technology is critical to success in our fast-paced world. Donate your gently used laptop, smartphone, or tablet to help connect someone in need to a brighter future.
-        </h2>
     </React.Fragment>
     
 );
@@ -21,7 +18,7 @@ ByLine.propTypes = {
 const ByLineStyled = styled(ByLine)`
     color: black;
     text-align: left;
-    font-size: 4em;
+    font-size: 4vw;
 `;
 
 export default ByLineStyled;

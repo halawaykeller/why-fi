@@ -10,7 +10,7 @@ import { CartesianGrid, XAxis, YAxis, Tooltip, Area, AreaChart, Label, Legend } 
 const HookGraph = (props) => (
     
 
-    <div class={props.className}>
+    <div className={props.className}>
         <h1>Internet Usage Statistics</h1>
         <h2>Internet Adoption Over Time</h2>
         <AreaChart width={600} height={400} data={data} margin={{top: 10, right: 30, left: 0, bottom: 0}}>
@@ -64,7 +64,9 @@ const HookGraph = (props) => (
 
 const HookGraphStyled = styled(HookGraph)`
 max-width: 60%;
-margin: 0 auto;
+    @media (max-width: 700px) {
+        width: 90%;
+    }
 `;
 
 export default HookGraphStyled;

@@ -34,7 +34,7 @@ const DonationPageStyled = styled(DonationPage)`
 const ms2p = ({
     firestore: { ordered: { users: nonProfits } },
 }) => ({
-    nonProfits
+    nonProfits 
 });
 
 const DonationPageSmart = firestoreConnect([

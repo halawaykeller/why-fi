@@ -8,10 +8,12 @@ import { PAGES } from '../data/constants';
 
 import SplashPage from './splash-page';
 import AuthPage from './auth-page';
+import DonationPage from './donation-page';
 
 const contentComponents = {
     [PAGES.HOME]: SplashPage,
     [PAGES.AUTH]: AuthPage,
+    [PAGES.DONATION]: DonationPage,
 };
 
 
